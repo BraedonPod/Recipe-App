@@ -3,7 +3,7 @@ import { Grid, CircularProgress, Divider } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 import Recipe from '../../Recipes/Recipe/Recipe';
 
-const NewestRating = ({ setCurrentId }) => {
+const NewestRating = ({ setCurrentId, showModal }) => {
   const recipes = useSelector((state) => state.recipes);
 
   recipes.sort(function(a, b) {
@@ -19,7 +19,7 @@ const NewestRating = ({ setCurrentId }) => {
           {recipes.map((recipe) => {
             return (
               <Grid key={recipe.id} item xs={12} md={3}>
-                <Recipe recipe={recipe} setCurrentId={setCurrentId} />
+                <Recipe recipe={recipe} setCurrentId={setCurrentId} showModal={showModal} />
               </Grid>
             )
           })}

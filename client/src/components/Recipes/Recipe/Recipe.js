@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import { favRecipe } from '../../../actions/recipes';
 import useStyles from './styles';
 
-const Recipe = ({ recipe, setCurrentId }) => {
+const Recipe = ({ recipe, setCurrentId, showModal }) => {
   const dispatch = useDispatch();
   const classes = useStyles();
 
@@ -18,7 +18,7 @@ const Recipe = ({ recipe, setCurrentId }) => {
         <Typography variant="body2">{moment(recipe.createdAt).fromNow()}</Typography>
       </div>
       <div className={classes.overlay2}>
-        <Button style={{ color: 'white' }} size="small" onClick={() => {setCurrentId(recipe.id)}}><MoreHoriz fontSize="default" /></Button>
+        <Button style={{ color: 'white' }} size="small" onClick={() => {setCurrentId(recipe.id); showModal();}}><MoreHoriz fontSize="default" /></Button>
       </div>
       <Typography className={classes.title} variant="h5" component="h2">{recipe.title}</Typography>
       <div className={classes.starOverlay}>{recipe.rating} <Star /></div>
@@ -29,7 +29,7 @@ const Recipe = ({ recipe, setCurrentId }) => {
         }
       </div>
       <CardContent>
-        <Typography variant="body2" color="textSecondary" component="p">{recipe.description.slice(0, 100)}</Typography>
+        <Typography variant="body2" color="textSecondary" component="p">{recipe.description.slice(0, 100)}...</Typography>
       </CardContent>
       <CardActions className={classes.cardActions}>
         <Link to={`/recipe/${recipe.id}`}><Button variant="outlined" size="small" color="primary">View Recipe</Button></Link>

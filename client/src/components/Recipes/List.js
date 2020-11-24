@@ -3,7 +3,7 @@ import { Grid, CircularProgress } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 import Recipe from './Recipe/Recipe';
 
-const List = ({ setCurrentId, filter }) => {
+const List = ({ setCurrentId, filter, showModal }) => {
   const recipes = useSelector((state) => state.recipes);
 
   return (
@@ -13,7 +13,7 @@ const List = ({ setCurrentId, filter }) => {
           if(recipe.title.toLowerCase().match(filter.toLowerCase()))
             return (
               <Grid key={recipe.id} item xs={12} md={4}>
-                <Recipe recipe={recipe} setCurrentId={setCurrentId} />
+                <Recipe recipe={recipe} setCurrentId={setCurrentId} showModal={showModal} />
               </Grid>
             )
         })}

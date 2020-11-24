@@ -11,3 +11,18 @@
 .grid-helper {
   margin-bottom: 20px !important;
 }
+
+.rating-title-wrapper {
+  text-align: left;
+  /* display: flex; */
+  align-items: baseline;
+}
+
+.rating-title {
+  max-width: 90%;
+}
+
+.rating-viewmore {
+  float: right;
+  padding-right: 16px;
+}
