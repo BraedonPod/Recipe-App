@@ -33,6 +33,15 @@ export default makeStyles({
     right: '20px',
     color: 'white',
   },
+  starOverlay: {
+    color: '#fdbc05',
+    display: 'flex',
+    paddingLeft: 16,
+    fontWeight: 600,
+    '& svg': {
+      width: '18px !important',
+    },
+  },
   grid: {
     display: 'flex',
   },
@@ -49,5 +58,17 @@ export default makeStyles({
     padding: '0 16px 8px 16px',
     display: 'flex',
     justifyContent: 'space-between',
+  },
+  favBtn: {
+    color: '#f50000',
+    '&:hover' : {
+      color: '#4a4a4a8f',
+    },
+  },
+  notfavBtn: {
+    color: '#4a4a4a8f',
+    '&:hover' : {
+      color: '#f50000',
+    },
   },
 });

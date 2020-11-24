@@ -1,14 +1,14 @@
 import React from 'react';
 import { Card, CardContent, CardMedia, Button, Typography, CardActions } from '@material-ui/core';
-import { MoreHoriz, Favorite } from '@material-ui/icons/';
+import { MoreHoriz, Favorite, Star } from '@material-ui/icons/';
 import moment from 'moment';
-//import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-
+import { favRecipe } from '../../../actions/recipes';
 import useStyles from './styles';
 
 const Recipe = ({ recipe, setCurrentId }) => {
-  //const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const classes = useStyles();
 
   return (
@@ -21,6 +21,7 @@ const Recipe = ({ recipe, setCurrentId }) => {
         <Button style={{ color: 'white' }} size="small" onClick={() => {setCurrentId(recipe.id)}}><MoreHoriz fontSize="default" /></Button>
       </div>
       <Typography className={classes.title} variant="h5" component="h2">{recipe.title}</Typography>
+      <div className={classes.starOverlay}>{recipe.rating} <Star /></div>
       <div className={classes.details}>
         {recipe.tags  ? (
           <Typography variant="body2" color="textSecondary" component="h3">{recipe.tags.split(', ').map((tag) => ` #${tag} `)}</Typography>
@@ -32,7 +33,7 @@ const Recipe = ({ recipe, setCurrentId }) => {
       </CardContent>
       <CardActions className={classes.cardActions}>
         <Link to={`/recipe/${recipe.id}`}><Button variant="outlined" size="small" color="primary">View Recipe</Button></Link>
-        <Button variant="outlined" size="small" color="secondary"><Favorite fontSize="small" /> Fav</Button>
+        <Button variant="outlined" size="small" className={recipe.fav ? classes.favBtn : classes.notfavBtn} onClick={() => dispatch(favRecipe(recipe.id))}><Favorite fontSize="small" /> Fav</Button>
       </CardActions>
     </Card>
   )

@@ -12,7 +12,7 @@ const List = ({ setCurrentId, filter }) => {
         {recipes.map((recipe) => {
           if(recipe.title.toLowerCase().match(filter.toLowerCase()))
             return (
-              <Grid key={recipe.id} item xs={12} sm={4}>
+              <Grid key={recipe.id} item xs={12} md={4}>
                 <Recipe recipe={recipe} setCurrentId={setCurrentId} />
               </Grid>
             )

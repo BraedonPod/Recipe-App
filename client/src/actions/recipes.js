@@ -1,4 +1,4 @@
-import { FETCH_ALL, CREATE, UPDATE } from '../constants/actionTypes';
+import { FETCH_ALL, CREATE, UPDATE, FAV } from '../constants/actionTypes';
 import * as api from '../api';
 
 export const getRecipes = () => async (dispatch) => {
@@ -23,6 +23,15 @@ export const updateRecipe = (id, recipe) => async (dispatch) => {
   try {
     const { data } = await api.updateRecipe(id, recipe);
     dispatch({ type: UPDATE, payload: data });
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export const favRecipe = (id) => async (dispatch) => {
+  try {
+    const { data } = await api.favRecipe(id);
+    dispatch({ type: FAV, payload: data });
   } catch (error) {
     console.log(error);
   }

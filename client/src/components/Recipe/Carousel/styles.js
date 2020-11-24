@@ -6,8 +6,10 @@ export default makeStyles((theme) => ({
     margin: 'auto',
   },
   w100: {
-    height: 400,
-    backgroundSize: 'contain',
+    maxWidth: '100%',
+    maxHeight: 400,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
   },
   carousel: {
     background: 'black',

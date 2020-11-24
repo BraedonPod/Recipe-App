@@ -5,7 +5,7 @@ import List from './Recipes/List';
 import Modal from './Modal';
 import Search from './Search';
 import { Carousel, Directions, Ingredients } from './Recipe';
-import { NewestRating, HighestRating } from './Ratings';
+import { NewestRating, HighestRating, FavRating } from './Ratings';
 
 export {
   Appbar,
@@ -18,5 +18,6 @@ export {
   Carousel,
   Search,
   NewestRating,
-  HighestRating
+  HighestRating,
+  FavRating
 };

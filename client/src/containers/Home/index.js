@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Container } from '@material-ui/core';
-import { Form, NewestRating, HighestRating } from '../../components';
+import { Form, NewestRating, HighestRating, FavRating } from '../../components';
 
 import { getRecipes } from '../../actions/recipes';
 import { useDispatch } from 'react-redux';
@@ -19,7 +19,8 @@ const Home = () => {
         <Container maxWidth="lg">
           <HighestRating setCurrentId={setCurrentId} />
           <NewestRating setCurrentId={setCurrentId} />
-          <Form  currentId={currentId} setCurrentId={setCurrentId} />
+          <FavRating setCurrentId={setCurrentId} />
+          <Form currentId={currentId} setCurrentId={setCurrentId} />
         </Container>
       </>
   )

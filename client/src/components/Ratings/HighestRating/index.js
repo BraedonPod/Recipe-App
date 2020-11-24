@@ -18,7 +18,7 @@ const HighestRating = ({ setCurrentId }) => {
         <Grid className="grid-helper" container alignItems="stretch" spacing={2}>
           {recipes.map((recipe) => {
             return (
-              <Grid key={recipe.id} item xs={12} sm={3}>
+              <Grid key={recipe.id} item xs={12} md={3}>
                 <Recipe recipe={recipe} setCurrentId={setCurrentId} />
               </Grid>
             )
